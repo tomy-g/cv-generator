@@ -1,0 +1,31 @@
+---
+interface SkillCategory {
+	name: string;
+	keywords: string[];
+}
+
+interface Props {
+	skills: SkillCategory[];
+}
+
+const { skills } = Astro.props;
+
+const softSkills = skills.find(s => s.name === "Habilidades");
+---
+
+<section>
+	<h3 class="text-xl font-bold uppercase tracking-widest text-[#9eb9ff] mb-3 font-heading">Habilidades</h3>
+	
+	{softSkills && (
+		<ul class="space-y-2">
+			{softSkills.keywords.map((skill) => {
+				const [title, desc] = skill.split(':');
+				return (
+					<li class="text-white/80 text-sm leading-snug">
+						<strong class="text-white">{title}:</strong>{desc}
+					</li>
+				);
+			})}
+		</ul>
+	)}
+</section>

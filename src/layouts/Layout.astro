@@ -1,0 +1,54 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="CV de Tomás Goizueta - Ingeniero de Software" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="bg-[#070919] text-white font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col items-center py-8 md:py-12 print:bg-white print:p-0 print:block print:min-h-0">
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	@page {
+		margin: 0;
+		size: A4;
+	}
+	
+	@media print {
+		body {
+			-webkit-print-color-adjust: exact;
+			print-color-adjust: exact;
+		}
+	}
+
+	/* Custom Scrollbar */
+	::-webkit-scrollbar {
+		width: 8px;
+	}
+	::-webkit-scrollbar-track {
+		background: #0B0F29;
+	}
+	::-webkit-scrollbar-thumb {
+		background: #333;
+		border-radius: 4px;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: #555;
+	}
+</style>

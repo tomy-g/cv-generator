@@ -1,0 +1,16 @@
+---
+interface Props {
+	summary: string;
+}
+
+const { summary } = Astro.props;
+---
+
+<section>
+	<h3 class="text-xl font-bold uppercase tracking-widest text-[#9eb9ff] mb-3 font-heading">Perfil</h3>
+	<div class="text-white/80 leading-snug space-y-2 text-sm font-light">
+		{summary.split('. ').map((sentence) => (
+			<p>{sentence.trim()}{sentence.endsWith('.') ? '' : '.'}</p>
+		))}
+	</div>
+</section>

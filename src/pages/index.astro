@@ -1,0 +1,55 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/cv/Header.astro";
+import Profile from "../components/cv/Profile.astro";
+import Experience from "../components/cv/Experience.astro";
+import Education from "../components/cv/Education.astro";
+import AdditionalSkills from "../components/cv/AdditionalSkills.astro";
+import resume from "../data/resume.json";
+
+const { basics, work, education, skills, languages } = resume;
+
+// Replace placeholders with environment variables (only sensitive data)
+basics.email = import.meta.env.PUBLIC_EMAIL || basics.email;
+basics.phone = import.meta.env.PUBLIC_PHONE || basics.phone;
+---
+
+<Layout title={`CV - ${basics.name}`}>
+	<main
+		class="w-[210mm] min-h-[297mm] relative bg-[#060239] text-white box-border shadow-2xl print:shadow-none print:m-0 print:h-[297mm] print:overflow-hidden"
+	>
+		<div class="relative z-10 h-full flex flex-col p-6 md:p-10 print:p-10">
+			<Header basics={basics} />
+
+			<div class="flex flex-col gap-4 mt-4 flex-1">
+				<!-- Single Column Layout -->
+				<Profile summary={basics.summary} />
+				<Experience work={work} />
+				<Education education={education} />
+				<AdditionalSkills languages={languages} skills={skills} />
+			</div>
+		</div>
+	</main>
+</Layout>
+
+<style>
+	/* Remove scaling to show full content at actual size */
+	@media screen {
+		main {
+			/* Full size preview - scroll to see all content */
+			margin: 2rem auto;
+		}
+	}
+
+	@media print {
+		main {
+			margin: 0 !important;
+			page-break-after: avoid;
+		}
+		
+		/* Ensure content fits on one page if possible */
+		* {
+			page-break-inside: avoid;
+		}
+	}
+</style>

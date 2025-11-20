@@ -1,0 +1,56 @@
+---
+interface Language {
+	language: string;
+	fluency: string;
+}
+
+interface SkillCategory {
+	name: string;
+	keywords: string[];
+}
+
+interface Props {
+	languages: Language[];
+	skills: SkillCategory[];
+}
+
+const { languages, skills } = Astro.props;
+
+const techCategories = ["Lenguajes de Programación", "Frameworks", "Otras Áreas"];
+const techSkills = skills.filter(s => techCategories.includes(s.name));
+---
+
+<section>
+	<h3 class="text-xl font-bold uppercase tracking-widest text-[#9eb9ff] mb-3 font-heading">Skills Adicionales</h3>
+	
+	<div class="grid grid-cols-2 gap-6">
+		
+		<!-- Tecnologías Column -->
+		<div>
+			<h4 class="text-sm font-bold uppercase text-white mb-2 font-heading">Tecnologías</h4>
+			<div class="space-y-2.5">
+				{techSkills.map((category) => (
+					<div>
+						<h5 class="text-xs font-bold uppercase text-white/60 mb-1.5 font-heading">{category.name}</h5>
+						<p class="text-white/80 text-sm leading-relaxed font-light">
+							{category.keywords.join(' • ')}
+						</p>
+					</div>
+				))}
+			</div>
+		</div>
+
+        <!-- Idiomas Column -->
+		<div>
+			<h4 class="text-sm font-bold uppercase text-white mb-2 font-heading">Idiomas</h4>
+			<div class="space-y-1.5">
+				{languages.map((lang) => (
+					<div class="flex items-baseline justify-between gap-4">
+						<span class="font-bold uppercase text-white font-heading text-sm">{lang.language}</span>
+						<span class="text-white/70 font-light uppercase font-heading text-xs">{lang.fluency}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
