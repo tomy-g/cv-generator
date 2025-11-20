@@ -1,4 +1,4 @@
-"# 📄 CV Generator
+# 📄 CV Generator
 
 A modern, web-based CV/Resume generator built with Astro and Tailwind CSS. This project enables rapid CV customization and deployment, making it easy to tailor your resume for different job applications.
 
