@@ -16,7 +16,7 @@ basics.phone = import.meta.env.PUBLIC_PHONE || basics.phone;
 
 <Layout title={`CV - ${basics.name}`}>
 	<main
-		class="w-[210mm] min-h-[297mm] relative bg-[#060239] text-white box-border shadow-2xl print:shadow-none print:m-0 print:h-[297mm] print:overflow-hidden"
+		class="w-[210mm] min-h-[297mm] relative bg-[var(--color-card)] text-white box-border shadow-2xl border border-[var(--color-card-border)] print:shadow-none print:m-0 print:h-[297mm] print:overflow-hidden"
 	>
 		<div class="relative z-10 h-full flex flex-col p-6 md:p-10 print:p-10">
 			<Header basics={basics} />

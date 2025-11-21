@@ -5,51 +5,77 @@ import Phone from "@lucide/astro/icons/phone";
 import MapPin from "@lucide/astro/icons/map-pin";
 
 interface Props {
-	basics: {
-		name: string;
-		label: string;
-		email: string;
-		phone: string;
-		url: string;
-		location: {
-			city: string;
-			countryCode: string;
-		};
-	};
+  basics: {
+    name: string;
+    label: string;
+    email: string;
+    phone: string;
+    url: string;
+    location: {
+      city: string;
+      countryCode: string;
+    };
+  };
 }
 
 const { basics } = Astro.props;
 ---
 
-<header class="flex flex-col md:flex-row print:flex-row justify-between items-start gap-6">
-	<div class="relative z-10">
-		<h1 class="text-5xl md:text-6xl print:text-6xl font-bold uppercase leading-[0.9] tracking-tight font-heading">
-			<span class="text-white block">{basics.name.split(' ')[0]}</span>
-			<span class="text-white block">{basics.name.split(' ').slice(1).join(' ')}</span>
-		</h1>
-		<h2 class="text-lg md:text-xl print:text-xl tracking-[0.2em] mt-2 font-light uppercase font-heading text-white/90">{basics.label}</h2>
-	</div>
+<header
+  class="flex flex-col md:flex-row print:flex-row justify-between items-start gap-6"
+>
+  <div class="relative z-10">
+    <h1
+      class="text-5xl md:text-6xl print:text-6xl font-bold uppercase leading-[0.9] tracking-tight font-heading"
+    >
+      <span class="text-white block">{basics.name.split(" ")[0]}</span>
+      <span class="text-white block"
+        >{basics.name.split(" ").slice(1).join(" ")}</span
+      >
+    </h1>
+    <h2
+      class="text-lg md:text-xl print:text-xl tracking-[0.2em] mt-2 font-light uppercase font-heading text-white/90"
+    >
+      {basics.label}
+    </h2>
+  </div>
 
-	<div class="flex flex-col gap-2 text-sm md:text-base print:text-base text-white/80 mt-2">
-		<a href={basics.url} target="_blank" class="flex items-center gap-3 hover:text-white transition-colors">
-			<Globe class="h-5 w-5" />
-			<span>www.tomyg.com</span>
-		</a>
-		<div class="text-xs text-white/50 pl-8 uppercase tracking-wider">Portfolio y Proyectos</div>
-		
-		<a href={`mailto:${basics.email}`} class="flex items-center gap-3 hover:text-white transition-colors">
-			<Mail class="h-5 w-5" />
-			<span>{basics.email}</span>
-		</a>
-		
-		<a href={`tel:${basics.phone.replace(/\s/g, '')}`} class="flex items-center gap-3 hover:text-white transition-colors">
-			<Phone class="h-5 w-5" />
-			<span>{basics.phone}</span>
-		</a>
-		
-		<div class="flex items-center gap-3">
-			<MapPin class="h-5 w-5" />
-			<span>{basics.location.city}</span>
-		</div>
-	</div>
+  <div
+    class="flex flex-col gap-2 text-sm md:text-sm print:text-sm text-white/80 mt-2"
+  >
+    <div class="flex flex-col gap-0.5">
+      <a
+        href={basics.url}
+        target="_blank"
+        class="flex items-center gap-3 hover:text-white transition-colors"
+      >
+        <Globe class="h-5 w-5" />
+        <span>www.tomyg.com</span>
+      </a>
+      <div class="text-xs text-white/50 pl-8 uppercase tracking-wider">
+        Portfolio y Proyectos
+      </div>
+    </div>
+
+    <a
+      href={`mailto:${basics.email}`}
+      class="flex items-center gap-3 hover:text-white transition-colors"
+    >
+      <Mail class="h-5 w-5" />
+      <span>{basics.email}</span>
+    </a>
+
+    <a
+      href={`tel:${basics.phone.replace(/\s/g, "")}`}
+      class="flex items-center gap-3 hover:text-white transition-colors"
+    >
+      <Phone class="h-5 w-5" />
+      <span>{basics.phone}</span>
+    </a>
+
+    <div class="flex items-center gap-3">
+      <MapPin class="h-5 w-5" />
+      <span>{basics.location.city}</span>
+    </div>
+  </div>
 </header>

@@ -7,8 +7,8 @@ const { summary } = Astro.props;
 ---
 
 <section>
-	<h3 class="text-xl font-bold uppercase tracking-widest text-[#9eb9ff] mb-3 font-heading">Perfil</h3>
-	<div class="text-white/80 leading-snug space-y-2 text-sm ">
+	<h3 class="text-xl font-bold uppercase tracking-widest text-[var(--color-accent)] mb-3 font-heading">Perfil</h3>
+	<div class="text-white/80 leading-snug space-y-1 text-sm print:text-sm ">
 		{summary.split('. ').map((sentence) => (
 			<p>{sentence.trim()}{sentence.endsWith('.') ? '' : '.'}</p>
 		))}

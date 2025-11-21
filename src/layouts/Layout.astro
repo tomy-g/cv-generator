@@ -19,7 +19,7 @@ const { title } = Astro.props;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 	</head>
-	<body class="bg-[#070919] text-white font-sans antialiased selection:bg-purple-500 selection:text-white min-h-screen flex flex-col items-center py-8 md:py-12 print:bg-white print:p-0 print:block print:min-h-0">
+	<body class="bg-[var(--color-page)] text-white font-sans antialiased selection:bg-[var(--color-accent)] selection:text-white min-h-screen flex flex-col items-center py-8 md:py-12 print:bg-white print:p-0 print:block print:min-h-0">
 		<slot />
 	</body>
 </html>
@@ -35,6 +35,14 @@ const { title } = Astro.props;
 			-webkit-print-color-adjust: exact;
 			print-color-adjust: exact;
 		}
+	}
+
+	:root {
+		--color-page: #030616;
+		--color-card: #060c2f;
+		--color-card-border: #0f1850;
+		--color-accent: #9eb9ff;
+		--color-accent-soft: #b8ccff;
 	}
 
 	/* Custom Scrollbar */

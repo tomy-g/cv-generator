@@ -14,10 +14,21 @@
     "work": [
         {
             "name": "Babel",
-            "position": "Front Software Engineer",
-            "startDate": "2023",
-            "endDate": "2024",
-            "summary": "Proyecto para Banco Santander. Angular, Node, TypeScript, Stencil, PostgreSQL"
+            "jobUrl": "babelgroup.com",
+            "position": "Software Engineer Frontend",
+            "startDate": "Feb 2023",
+            "endDate": "Mar 2024",
+            "summaryTitle": "Proyecto para Banco Santander.",
+            "summary": [
+                "Desarrollo de aplicaciones web con arquitectura microfrontend para el sector bancario, utilizando Angular, React, TypeScript y SASS.",
+                "Mantenimiento y evolución de un catálogo de componentes en Storybook, garantizando la coherencia visual y funcional en todas las aplicaciones.",
+                "Implementación de servicios backend con Node.js y NestJS para dar soporte a las funcionalidades del frontend.",
+                "Trabajo en un entorno ágil con metodologías Scrum y Kanban, participando en las reuniones diarias, la planificación de sprints y las revisiones de código.",
+                "Realización de pruebas unitarias con Jest para asegurar la calidad y estabilidad del software.",
+                "Uso de Git y GitHub para la gestión del código fuente y la colaboración con el equipo de desarrollo."
+            ]
+
+            
         }
     ],
     "education": [
@@ -25,19 +36,22 @@
             "institution": "Universidad de Málaga",
             "area": "Grado en Ingeniería del Software",
             "startDate": "2020",
-            "endDate": "2025"
+            "endDate": "2025",
+            "summary": ""
         },
         {
             "institution": "Babel & Banco Santander",
             "area": "Bootcamp Fullstack",
             "startDate": "2023",
-            "endDate": "2023"
+            "endDate": "2023",
+            "summary": ""
         },
         {
             "institution": "Universidad de Málaga",
             "area": "Curso de Montaje y Configuración del PC",
             "startDate": "2016",
-            "endDate": "2016"
+            "endDate": "2016",
+            "summary": ""
         }
     ],
     "skills": [
@@ -46,7 +60,6 @@
             "keywords": [
                 "JavaScript",
                 "TypeScript",
-                "HTML",
                 "CSS",
                 "Java",
                 "Java EE",
@@ -54,7 +67,6 @@
                 "C",
                 "C++",
                 "SQL",
-                "noSQL",
                 "PostgreSQL",
                 "MySQL"
             ]
