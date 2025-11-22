@@ -1,13 +1,14 @@
 ---
 interface Props {
 	summary: string;
+	title: string;
 }
 
-const { summary } = Astro.props;
+const { summary, title } = Astro.props;
 ---
 
 <section aria-labelledby="profile-heading">
-	<h3 id="profile-heading" class="text-xl font-bold uppercase tracking-widest text-[var(--color-accent)] mb-3 font-heading">Perfil</h3>
+	<h3 id="profile-heading" class="text-xl font-bold uppercase tracking-widest text-[var(--color-accent)] mb-3 font-heading">{title}</h3>
 	<div class="text-white/80 leading-snug space-y-1 text-sm print:text-sm ">
 		{summary
 			.split('. ')

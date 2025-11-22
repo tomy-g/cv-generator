@@ -9,13 +9,14 @@ interface EducationItem {
 
 interface Props {
 	education: EducationItem[];
+	title: string;
 }
 
-const { education } = Astro.props;
+const { education, title } = Astro.props;
 ---
 
 <section aria-labelledby="education-heading">
-	<h3 id="education-heading" class="text-lg font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2.5 font-heading">Formación</h3>
+	<h3 id="education-heading" class="text-lg font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2.5 font-heading">{title}</h3>
 	
 	<ol role="list" class="list-none space-y-4 relative border-l-2 border-[color:rgba(158,185,255,0.35)] ml-1 pl-6 py-1">
 		{education.map((edu, index) => (

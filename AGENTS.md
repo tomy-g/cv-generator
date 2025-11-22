@@ -6,5 +6,5 @@
 
 ## Notes for agents
 - Keep all text truthful; adjustments should be limited to reordering or emphasizing existing information to better fit each job posting.
-- Avoid duplicating data across sections; use the `src/data/resume.json` file as the single source of truth.
+- Avoid duplicating data across sections; shared information lives in `src/data/common.json` and localized content in `src/data/resume-es.json` and `src/data/resume-en.json`.
 - After editing, run `npm run build` to verify that the exportable version renders correctly.

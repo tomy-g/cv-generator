@@ -16,17 +16,17 @@ This project solves a common problem when applying for jobs: **quickly adapting 
 
 ## 🤖 AI-Powered Workflow
 
-The structured JSON format (`src/data/resume.json`) makes it perfect for AI assistance:
+The structured JSON format (`src/data/resume-es.json`, `src/data/resume-en.json`, plus shared constants in `src/data/common.json`) makes it perfect for AI assistance:
 
 ### Example Workflow:
 1. **Find a job offer** you want to apply to
 2. **Use an LLM** (ChatGPT, Claude, etc.) with a prompt like:
    ```
-   Here's my CV data (paste resume.json) and here's the job offer (paste job description).
+   Here's my CV data (paste resume-es.json or resume-en.json) and here's the job offer (paste job description).
    Tailor my CV to highlight relevant experience and skills for this position.
    Update the summary and reorder skills to match job requirements.
    ```
-3. **Copy the updated JSON** back to `resume.json`
+3. **Copy the updated JSON** back to the matching localized file (and `common.json` if shared data changed)
 4. **Deploy instantly** - Your customized CV is live!
 
 This workflow lets you create targeted CVs in minutes instead of hours.
@@ -59,6 +59,8 @@ This workflow lets you create targeted CVs in minutes instead of hours.
    ```env
    PUBLIC_EMAIL=your.email@example.com
    PUBLIC_PHONE=Your Phone Number
+   # Optional: force a language (es or en)
+   PUBLIC_RESUME_LANG=es
    ```
 
 4. **Start development server**
@@ -72,31 +74,43 @@ This workflow lets you create targeted CVs in minutes instead of hours.
 
 ### Edit Content
 
-All CV content is in `src/data/resume.json`. Update:
+- **Shared facts** (name, canonical URLs, repeat companies, default contact info) live in `src/data/common.json`.
+- **Localized content** lives in `src/data/resume-es.json` and `src/data/resume-en.json`. Each file contains language-specific summaries, labels, and descriptions while referencing shared data via `companyKey` and the global `person` block.
 
-- **Personal Info**: Name, job title, summary, location
-- **Work Experience**: Companies, positions, dates, descriptions
-- **Education**: Degrees, institutions, dates
-- **Skills**: Technical skills, frameworks, tools
-- **Languages**: Language proficiency levels
+Update:
+
+- **Personal Info**: Section labels, summaries, job titles in each language file
+- **Work Experience**: Localized descriptions while pointing to shared companies with `companyKey`
+- **Education**: Degrees, institutions, dates per language
+- **Skills**: Technical/soft skills translated per language (use the `key` field so components can group them)
+- **Languages**: Language proficiency levels per locale
 
 ### Example Structure:
 ```json
 {
-  "basics": {
-    "name": "Your Name",
-    "label": "Your Job Title",
-    "summary": "Your professional summary..."
-  },
-  "work": [
-    {
-      "name": "Company",
-      "position": "Your Position",
-      "startDate": "2023",
-      "endDate": "2024",
-      "summary": "Description of your work"
-    }
-  ]
+   "language": "es",
+   "labels": {
+      "profile": "Perfil",
+      "experience": "Experiencia"
+   },
+   "basics": {
+      "label": "Ingeniero de Software",
+      "summary": "Resumen localizado..."
+   },
+   "work": [
+      {
+         "companyKey": "babel",
+         "position": "Software Engineer Frontend",
+         "summary": ["Descripción localizada..."]
+      }
+   ],
+   "skills": [
+      {
+         "key": "programmingLanguages",
+         "name": "Lenguajes de Programación",
+         "keywords": ["JavaScript", "TypeScript"]
+      }
+   ]
 }
 ```
 

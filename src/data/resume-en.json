@@ -1,0 +1,97 @@
+{
+  "language": "en",
+  "labels": {
+    "profile": "Profile",
+    "experience": "Experience",
+    "education": "Education",
+    "additionalSkills": "Additional Skills",
+    "technologies": "Technologies",
+    "languages": "Languages",
+    "softSkillsSection": "Soft Skills",
+    "portfolioTagline": "Portfolio & Projects"
+  },
+  "basics": {
+    "label": "Software Engineer",
+    "summary": "Software Engineering graduate with 1 year of front-end web development experience. Passionate about crafting intuitive and efficient user interfaces that deliver exceptional experiences. Constantly learning new technologies and refining my skills."
+  },
+  "work": [
+    {
+      "companyKey": "babel",
+      "position": "Software Engineer Frontend",
+      "startDate": "Feb 2023",
+      "endDate": "Mar 2024",
+      "summaryTitle": "Project for Banco Santander.",
+      "summary": [
+        "Built micro-frontend web applications for the banking sector using Angular, React, TypeScript, and SASS.",
+        "Maintained and evolved a Storybook component catalog, ensuring visual and functional consistency across applications.",
+        "Implemented backend services with Node.js and NestJS to support frontend capabilities.",
+        "Worked in an agile environment (Scrum/Kanban), contributing to daily standups, sprint planning, and code reviews.",
+        "Authored unit tests with Jest to guarantee software quality and stability.",
+        "Used Git and GitHub for source control and cross-team collaboration."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Málaga",
+      "area": "Bachelor's Degree in Software Engineering",
+      "startDate": "2020",
+      "endDate": "2025",
+      "summary": ""
+    },
+    {
+      "institution": "Babel & Banco Santander",
+      "area": "Fullstack Bootcamp",
+      "startDate": "2023",
+      "endDate": "2023",
+      "summary": ""
+    },
+    {
+      "institution": "University of Málaga",
+      "area": "PC Assembly & Configuration Course",
+      "startDate": "2016",
+      "endDate": "2016",
+      "summary": ""
+    }
+  ],
+  "skills": [
+    {
+      "key": "technologies",
+      "name": "Technologies",
+      "keywordsKey": "technologies"
+    },
+    {
+      "key": "other",
+      "name": "Other Areas",
+      "keywords": [
+        "GIT",
+        "GitHub",
+        "UI - Figma",
+        "Game Engines: Unity (C#)",
+        "Unreal Engine 5",
+        "Graphic Design (Photoshop)",
+        "3D (Blender)"
+      ]
+    },
+    {
+      "key": "softSkills",
+      "name": "Soft Skills",
+      "keywords": [
+        "Self-directed learning: ramp up on tools and technologies independently and document outcomes clearly for the team.",
+        "Applied creativity: propose alternatives and quick prototypes to validate and choose the best frontend option.",
+        "Technical foundations: leverage data structures and design patterns when they improve clarity and maintainability; experienced with agile methodologies.",
+        "Design collaboration: translate Figma mockups into reusable components, give early feedback, and keep the design system consistent."
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "C1 Cambridge Linguaskill"
+    },
+    {
+      "language": "Spanish",
+      "fluency": "Native"
+    }
+  ]
+}

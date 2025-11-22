@@ -5,13 +5,64 @@ import Profile from "../components/cv/Profile.astro";
 import Experience from "../components/cv/Experience.astro";
 import Education from "../components/cv/Education.astro";
 import AdditionalSkills from "../components/cv/AdditionalSkills.astro";
-import resume from "../data/resume.json";
+import common from "../data/common.json";
+import resumeES from "../data/resume-es.json";
+import resumeEN from "../data/resume-en.json";
 
-const { basics, work, education, skills, languages } = resume;
+const resumeMap = {
+	es: resumeES,
+	en: resumeEN,
+} as const;
 
-// Replace placeholders with environment variables (only sensitive data)
-basics.email = import.meta.env.PUBLIC_EMAIL || basics.email;
-basics.phone = import.meta.env.PUBLIC_PHONE || basics.phone;
+type SupportedLanguage = keyof typeof resumeMap;
+
+const isSupportedLanguage = (lang: string): lang is SupportedLanguage => lang in resumeMap;
+
+const requestedLanguage = (import.meta.env.PUBLIC_RESUME_LANG || "es").toLowerCase();
+const selectedLanguage: SupportedLanguage = isSupportedLanguage(requestedLanguage)
+	? (requestedLanguage as SupportedLanguage)
+	: "es";
+const localizedResume = resumeMap[selectedLanguage];
+const companies = common.companies as Record<string, { name?: string; jobUrl?: string }>;
+const sharedSkills = common.skills as Record<string, string[]>;
+
+const localizedBasics = (localizedResume.basics || {}) as Record<string, any>;
+
+const resume = {
+	...localizedResume,
+	basics: {
+		name: common.person.name,
+		url: common.person.url,
+		label: localizedBasics.label,
+		summary: localizedBasics.summary,
+		email: import.meta.env.PUBLIC_EMAIL || localizedBasics.email || common.contact.email,
+		phone: import.meta.env.PUBLIC_PHONE || localizedBasics.phone || common.contact.phone,
+		location: {
+			...common.person.location,
+			...(localizedBasics.location || {})
+		}
+	},
+	work: (localizedResume.work || []).map((job: any) => {
+		const { companyKey, ...rest } = job;
+		const companyInfo = companyKey ? companies[companyKey] || {} : {};
+		return {
+			...companyInfo,
+			...rest,
+			name: rest.name || companyInfo.name || "",
+			jobUrl: rest.jobUrl || companyInfo.jobUrl || ""
+		};
+	}),
+	skills: (localizedResume.skills || []).map((skill: any) => {
+		const keywordsFromCommon = skill.keywordsKey ? sharedSkills[skill.keywordsKey] : undefined;
+		return {
+			...skill,
+			keywords: skill.keywords || keywordsFromCommon || []
+		};
+	}),
+	languageCode: selectedLanguage
+};
+
+const { basics, work, education, skills, languages, labels } = resume;
 ---
 
 <Layout title={`CV - ${basics.name}`}>
@@ -19,14 +70,20 @@ basics.phone = import.meta.env.PUBLIC_PHONE || basics.phone;
 		class="w-[210mm] min-h-[297mm] relative bg-[var(--color-card)] text-white box-border shadow-2xl border border-[var(--color-card-border)] print:shadow-none print:m-0 print:h-[297mm] print:overflow-hidden"
 	>
 		<div class="relative z-10 h-full flex flex-col p-6 md:p-10 print:p-10">
-			<Header basics={basics} />
+			<Header basics={basics} portfolioLabel={labels.portfolioTagline} />
 
 			<article aria-labelledby="cv-owner-name" class="flex flex-col gap-4 mt-4 flex-1">
 				<!-- Single Column Layout -->
-				<Profile summary={basics.summary} />
-				<Experience work={work} />
-				<Education education={education} />
-				<AdditionalSkills languages={languages} skills={skills} />
+				<Profile summary={basics.summary} title={labels.profile} />
+				<Experience work={work} title={labels.experience} />
+				<Education education={education} title={labels.education} />
+				<AdditionalSkills
+					languages={languages}
+					skills={skills}
+					title={labels.additionalSkills}
+					techTitle={labels.technologies}
+					languagesTitle={labels.languages}
+				/>
 			</article>
 		</div>
 	</main>

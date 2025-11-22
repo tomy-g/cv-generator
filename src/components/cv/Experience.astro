@@ -11,9 +11,10 @@ interface Work {
 
 interface Props {
   work: Work[];
+  title: string;
 }
 
-const { work } = Astro.props;
+const { work, title } = Astro.props;
 ---
 
 <section aria-labelledby="experience-heading">
@@ -21,7 +22,7 @@ const { work } = Astro.props;
     id="experience-heading"
     class="text-lg font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2.5 font-heading"
   >
-    Experiencia
+    {title}
   </h3>
 
   <ol role="list" class="list-none space-y-4 relative border-l-2 border-[color:rgba(158,185,255,0.35)] ml-1 pl-6 py-1">

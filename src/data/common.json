@@ -1,0 +1,35 @@
+{
+  "person": {
+    "name": "Tomás Goizueta",
+    "url": "https://www.tomyg.com",
+    "location": {
+      "city": "Málaga",
+      "countryCode": "ES"
+    }
+  },
+  "contact": {
+    "email": "PLACEHOLDER_EMAIL",
+    "phone": "PLACEHOLDER_PHONE"
+  },
+  "companies": {
+    "babel": {
+      "name": "Babel",
+      "jobUrl": "babelgroup.com"
+    }
+  },
+  "skills": {
+    "technologies": [
+      "TypeScript",
+      "CSS",
+      "Java",
+      "C++",
+      "PostgreSQL",
+      "React",
+      "Angular",
+      "Node",
+      "Express",
+      "NextJS",
+      "Astro"
+    ]
+  }
+}

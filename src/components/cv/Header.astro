@@ -16,9 +16,10 @@ interface Props {
       countryCode: string;
     };
   };
+  portfolioLabel: string;
 }
 
-const { basics } = Astro.props;
+const { basics, portfolioLabel } = Astro.props;
 ---
 
 <header
@@ -57,7 +58,7 @@ const { basics } = Astro.props;
             <span>www.tomyg.com</span>
           </a>
           <p class="text-xs text-white/50 pl-8 uppercase tracking-wider">
-            Portfolio y Proyectos
+            {portfolioLabel}
           </p>
         </div>
       </li>
