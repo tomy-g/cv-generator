@@ -20,43 +20,43 @@ const techCategories = ["Lenguajes de Programación", "Frameworks"];
 const techSkills = skills.filter(s => techCategories.includes(s.name));
 ---
 
-<section>
-	<h3 class="text-lg font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2.5 font-heading">Skills Adicionales</h3>
+<section aria-labelledby="additional-skills-heading">
+	<h3 id="additional-skills-heading" class="text-lg font-bold uppercase tracking-widest text-[var(--color-accent)] mb-2.5 font-heading">Skills Adicionales</h3>
 	
 	<div class="space-y-3">
 		
 		<!-- Tecnologías -->
 		<div>
 			<h4 class="text-xs font-bold uppercase text-white mb-1.5 font-heading tracking-wide">Tecnologías</h4>
-			<div class="space-y-1.5">
+			<ul role="list" class="space-y-1.5">
 				{techSkills.map((category) => (
-					<div class="bg-white/5 rounded p-1.5 border border-white/10">
+					<li class="bg-white/5 rounded p-1.5 border border-white/10">
 						<h5 class="text-xs font-bold uppercase text-[var(--color-accent)] opacity-80 mb-1 font-heading tracking-wide">{category.name}</h5>
-						<div class="flex flex-wrap gap-1">
+						<ul role="list" class="flex flex-wrap gap-1 list-none">
 							{category.keywords.map((keyword) => (
-								<span class="px-1.5 py-0.5 bg-white/10 rounded text-white/80 text-xs font-medium border border-white/20">
+								<li class="px-1.5 py-0.5 bg-white/10 rounded text-white/80 text-xs font-medium border border-white/20">
 									{keyword}
-								</span>
+								</li>
 							))}
-						</div>
-					</div>
+						</ul>
+					</li>
 				))}
-			</div>
+			</ul>
 		</div>
 
         <!-- Idiomas -->
 		<div>
 			<h4 class="text-xs font-bold uppercase text-white mb-1.5 font-heading tracking-wide">Idiomas</h4>
 			<div class="bg-white/5 rounded p-1.5 border border-white/10">
-				<div class="flex flex-wrap gap-1">
+				<ul role="list" class="flex flex-wrap gap-1 list-none">
 					{languages.map((lang) => (
-						<div class="px-2 py-0.5 bg-white/10 rounded border border-white/20 flex items-center gap-1.5">
+						<li class="px-2 py-0.5 bg-white/10 rounded border border-white/20 flex items-center gap-1.5">
 							<span class="font-bold uppercase text-white font-heading text-xs">{lang.language}</span>
 							<span class="text-white/50 text-xs">•</span>
 							<span class="text-white/70 font-light uppercase font-heading text-xs">{lang.fluency}</span>
-						</div>
+						</li>
 					))}
-				</div>
+				</ul>
 			</div>
 		</div>
 	</div>

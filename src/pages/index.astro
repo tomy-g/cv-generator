@@ -21,13 +21,13 @@ basics.phone = import.meta.env.PUBLIC_PHONE || basics.phone;
 		<div class="relative z-10 h-full flex flex-col p-6 md:p-10 print:p-10">
 			<Header basics={basics} />
 
-			<div class="flex flex-col gap-4 mt-4 flex-1">
+			<article aria-labelledby="cv-owner-name" class="flex flex-col gap-4 mt-4 flex-1">
 				<!-- Single Column Layout -->
 				<Profile summary={basics.summary} />
 				<Experience work={work} />
 				<Education education={education} />
 				<AdditionalSkills languages={languages} skills={skills} />
-			</div>
+			</article>
 		</div>
 	</main>
 </Layout>
@@ -45,6 +45,7 @@ basics.phone = import.meta.env.PUBLIC_PHONE || basics.phone;
 		main {
 			margin: 0 !important;
 			page-break-after: avoid;
+			border: none;
 		}
 		
 		/* Ensure content fits on one page if possible */

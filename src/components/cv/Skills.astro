@@ -13,8 +13,8 @@ const { skills } = Astro.props;
 const softSkills = skills.find(s => s.name === "Habilidades");
 ---
 
-<section>
-	<h3 class="text-xl font-bold uppercase tracking-widest text-[var(--color-accent)] mb-3 font-heading">Habilidades</h3>
+<section aria-labelledby="skills-heading">
+	<h3 id="skills-heading" class="text-xl font-bold uppercase tracking-widest text-[var(--color-accent)] mb-3 font-heading">Habilidades</h3>
 	
 	{softSkills && (
 		<ul class="space-y-2">
