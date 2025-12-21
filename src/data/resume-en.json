@@ -58,29 +58,19 @@
     {
       "key": "technologies",
       "name": "Technologies",
-      "keywordsKey": "technologies"
-    },
-    {
-      "key": "other",
-      "name": "Other Areas",
+      "keywordsKey": "technologies",
       "keywords": [
-        "GIT",
-        "GitHub",
-        "UI - Figma",
-        "Game Engines: Unity (C#)",
-        "Unreal Engine 5",
-        "Graphic Design (Photoshop)",
-        "3D (Blender)"
-      ]
-    },
-    {
-      "key": "softSkills",
-      "name": "Soft Skills",
-      "keywords": [
-        "Self-directed learning: ramp up on tools and technologies independently and document outcomes clearly for the team.",
-        "Applied creativity: propose alternatives and quick prototypes to validate and choose the best frontend option.",
-        "Technical foundations: leverage data structures and design patterns when they improve clarity and maintainability; experienced with agile methodologies.",
-        "Design collaboration: translate Figma mockups into reusable components, give early feedback, and keep the design system consistent."
+        "TypeScript",
+        "CSS",
+        "Java",
+        "C++",
+        "PostgreSQL",
+        "React",
+        "Angular",
+        "Node",
+        "Express",
+        "NextJS",
+        "Astro"
       ]
     }
   ],

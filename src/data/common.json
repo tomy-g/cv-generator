@@ -16,20 +16,5 @@
       "name": "Babel",
       "jobUrl": "babelgroup.com"
     }
-  },
-  "skills": {
-    "technologies": [
-      "TypeScript",
-      "CSS",
-      "Java",
-      "C++",
-      "PostgreSQL",
-      "React",
-      "Angular",
-      "Node",
-      "Express",
-      "NextJS",
-      "Astro"
-    ]
   }
 }

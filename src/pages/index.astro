@@ -24,7 +24,7 @@ const selectedLanguage: SupportedLanguage = isSupportedLanguage(requestedLanguag
 	: "es";
 const localizedResume = resumeMap[selectedLanguage];
 const companies = common.companies as Record<string, { name?: string; jobUrl?: string }>;
-const sharedSkills = common.skills as Record<string, string[]>;
+const sharedSkills = (common as any).skills as Record<string, string[]> | undefined;
 
 const localizedBasics = (localizedResume.basics || {}) as Record<string, any>;
 
@@ -53,7 +53,7 @@ const resume = {
 		};
 	}),
 	skills: (localizedResume.skills || []).map((skill: any) => {
-		const keywordsFromCommon = skill.keywordsKey ? sharedSkills[skill.keywordsKey] : undefined;
+		const keywordsFromCommon = sharedSkills && skill.keywordsKey ? sharedSkills[skill.keywordsKey] : undefined;
 		return {
 			...skill,
 			keywords: skill.keywords || keywordsFromCommon || []
